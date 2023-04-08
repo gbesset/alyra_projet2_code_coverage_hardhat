@@ -8,4 +8,5 @@ Hardhat pour pouvoir générer le code coverage
 
 ## Utilisation
 - Mettre fichier JS de truffle
+- `npx hardhat compile`
 - `npx hardhat coverage`
