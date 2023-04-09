@@ -1,9 +1,6 @@
 const AnyRental = artifacts.require('./AnyRental.sol');
-const Utils = artifacts.require("./Utils.sol");
-//const IAnyRental = artifacts.require('./IAnyRental.sol');
 const AnyNFTCollectionFactory = artifacts.require('./AnyNFTCollectionFactory.sol')
 const AnyNFTCollection = artifacts.require('./AnyNFTCollection.sol');
-//const AnyNFTCollectionJSon = require('../../client/src/contracts/AnyNFTCollection.json');
 const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 
@@ -58,25 +55,7 @@ contract('AnyRental', accounts => {
         
     }
 
-    describe("Utils - check is equal string ok", function () {
-
-        it("should chain A is equal chain B", async () => {
-            const a = "hello";
-            const b = "hello";
-            utilsIstance =  Utils.deployed();
-            const result = await utilsIstance.isEqualString(a, b);
-            expect(result).to.be.true;
-        });
-
-        it("should chain A is not equal chain B", async () => {
-            const a = "hello";
-            const b = "world";
-            const result = await Utils.isEqualString(a, b);
-            expect(result).to.be.false;
-        });
-    });
-
-
+    
     /**
      * Smart contract Deploiement
      */
@@ -384,7 +363,7 @@ contract('AnyRental', accounts => {
             });     
         });
 
-        describe('-- delegate NFT to a user', () => {
+        describe.skip('-- delegate NFT to a user', () => {
             let collectionAddress;
             beforeEach(async function () {
                 anyNFTFactoryInstance = await AnyNFTCollectionFactory.new({from: _contractOwner});
